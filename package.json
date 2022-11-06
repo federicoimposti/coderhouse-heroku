@@ -28,7 +28,8 @@
     "passport-local": "^1.0.0",
     "socket.io": "^4.5.1",
     "sqlite3": "^5.0.11",
-    "winston": "^3.8.2"
+    "winston": "^3.8.2",
+    "@faker-js/faker": "^7.5.0"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.5.0",
