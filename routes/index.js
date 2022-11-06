@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const productFormRouter = require('./productForm');
 const productsRouter = require('./products');
-const productsFakerRouter = require('./productsFaker');
+// const productsFakerRouter = require('./productsFaker');
 const login = require('./login');
 const logout = require('./logout');
 const register = require('./register');
@@ -19,7 +19,7 @@ router.use((req, res, next) => {
 
 router.use('/', productFormRouter);
 router.use('/productos', productsRouter);
-router.use('/api/productos-test', productsFakerRouter);
+// router.use('/api/productos-test', productsFakerRouter);
 router.use('/api/randoms', randoms);
 router.use('/login', login);
 router.use('/logout', logout);

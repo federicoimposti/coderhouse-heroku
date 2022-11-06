@@ -1,6 +1,6 @@
 const fs = require('fs');
 const logger = require('../logs/logger');
-const fakerProducts = require('../utils/faker');
+// const fakerProducts = require('../utils/faker');
 const error = { error: 'Producto no encontrado' };
 
 let products = [];
@@ -56,9 +56,9 @@ module.exports = class Controller {
         }
     }
 
-    static getAllFaker() {
-        return fakerProducts.fakerList();
-    }
+    // static getAllFaker() {
+    //     return fakerProducts.fakerList();
+    // }
 
     static deleteById(id) {
         try {

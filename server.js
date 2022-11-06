@@ -92,7 +92,7 @@ if (cluster.isPrimary) {
   io.on('connection', async function(socket) {
       console.log('Un cliente se ha conectado');
 
-      socket.emit('products', await productsController.getAllFaker());
+      socket.emit('products', await productsController.getAll());
       socket.emit('messages', await messages.getAll());
 
       socket.on('new-message', async (data) => {
