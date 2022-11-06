@@ -6,3 +6,4 @@
 {"level":"error","message":"Error: ReferenceError: x is not defined"}
 {"level":"error","message":"Error: ReferenceError: x is not defined"}
 {"level":"error","message":"Error: TypeError: Cannot read properties of undefined (reading 'from')"}
+{"level":"warn","message":"Ruta '/favicon.ico' Inexistente - Método 'GET'"}

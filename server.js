@@ -46,7 +46,7 @@ if (cluster.isPrimary) {
   const MongoStore = require("connect-mongo");
   const mongoose = require('mongoose');
 
-  const PORT = argv.port || 8080;
+  const PORT = argv.port || process.env.PORT;
 
   try {
       mongoose.connect(process.env.MONGO_URI);
