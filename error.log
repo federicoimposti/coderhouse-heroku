@@ -12,3 +12,4 @@
 {"level":"error","message":"Error: ValidationError: thumbnail: Path `thumbnail` is required."}
 {"level":"error","message":"Error: ValidationError: thumbnail: Path `thumbnail` is required."}
 {"level":"error","message":"Error: ValidationError: thumbnail: Path `thumbnail` is required."}
+{"level":"error","message":"Error: ValidationError: mensaje: Path `mensaje` is required., fecha: Path `fecha` is required."}

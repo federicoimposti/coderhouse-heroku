@@ -54,19 +54,17 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', router);
 
 const messagesController = require('./controllers/messages');
-const messages = new messagesController();
-
 const productsController = require('./controllers/products');
 
 io.on('connection', async function(socket) {
   console.log('Un cliente se ha conectado');
 
   socket.emit('products', await productsController.getAll());
-  // socket.emit('messages', await messages.getAll());
+  socket.emit('messages', await messagesController.getAll());
 
   socket.on('new-message', async (data) => {
-      await messages.save(data);
-      io.sockets.emit('messages', await messages.getAll());
+      await messagesController.save(data);
+      io.sockets.emit('messages', await messagesController.getAll());
   });
 
   socket.on('new-product', async (data) => {

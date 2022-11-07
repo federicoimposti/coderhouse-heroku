@@ -9,23 +9,18 @@ module.exports = class Messages {
         this.table = table;
     }
 
-    async save(obj) {
+    static async save(obj) {
         try {
-            await this.knex(this.table)
-                    .insert(obj)
-                    .then(() => {
-                        console.log("Message inserted");
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    })
+            const newMensaje = new Message(obj); 
+            const data = await newMensaje.save();
+            return data; 
         } catch (err) {
             logger.error(`Error: ${err}`);
             throw new Error('Ocurrió un error al guardar el archivo.', err);
         }
     }
 
-    async getAll() {
+    static async getAll() {
         try {
             const messages = await Message.find();
             return messages;
