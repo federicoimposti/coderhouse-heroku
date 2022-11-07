@@ -75,6 +75,8 @@ io.on('connection', async function(socket) {
   });
 });
 
-httpServer.listen(8080, () => {
-  console.log(`server on port ${8080}`);
+let PORT = process.env.PORT || 8080;
+
+httpServer.listen(PORT, () => {
+  console.log(`server on port ${PORT}`);
 })
