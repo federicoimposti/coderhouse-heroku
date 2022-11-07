@@ -1,9 +1,11 @@
 const fs = require('fs');
 const logger = require('../logs/logger');
+const Item = require('../models/Products.js');
+
+require('../db/connection.js'); 
+
 // const fakerProducts = require('../utils/faker');
 const error = { error: 'Producto no encontrado' };
-
-let products = [];
 
 module.exports = class Controller {
     constructor(knex, table) {
@@ -11,16 +13,11 @@ module.exports = class Controller {
         this.table = table;
     }
 
-    static async save(obj) {
+    static async save(product) {
         try {
-            await this.knex(this.table)
-                    .insert(obj)
-                    .then(() => {
-                        console.log("Product inserted");
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    })
+            const newProduct = new Item(product); 
+            const data = await newProduct.save();
+            return data; 
         } catch (err) {
             logger.error(`Error: ${err}`);
             throw new Error('Ocurrió un error al guardar el producto.', err);
@@ -43,13 +40,8 @@ module.exports = class Controller {
 
     static async getAll() {
         try {
-            return await this.knex
-                .from(this.table)
-                .select("*")
-                .then(products => products ? products : null)
-                .catch((err) => {
-                    console.log(err);
-                })
+            const productos = await Item.find();
+            return productos;
         } catch(err) {
             logger.error(`Error: ${err}`);
             throw new Error('Ocurrió un error obteniendo los productos.', err);

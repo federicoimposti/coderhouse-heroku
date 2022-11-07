@@ -4,10 +4,8 @@ const productsRouter = express.Router();
 const controller = require('../controllers/products');
 
 productsRouter.get("/", async (req, res) => {
-  console.log('aca llega');
   const response = await controller.getAll();
-  console.log('aca no')
-  res.render('pages/productsList', { products: response });
+  res.render('pages/productForm', { products: response });
 });
 
 productsRouter.post("/", (req, res) => {
