@@ -1,4 +1,7 @@
 const logger = require("../logs/logger");
+const Message = require('../models/Messages.js');
+
+require('../db/connection.js'); 
 
 module.exports = class Messages {
     constructor(knex, table) {
@@ -24,13 +27,8 @@ module.exports = class Messages {
 
     async getAll() {
         try {
-            return await this.knex
-                .from(this.table)
-                .select("*")
-                .then(messages => messages ? messages : null)
-                .catch((err) => {
-                    console.log(err);
-                })
+            const messages = await Message.find();
+            return messages;
         } catch(err) {
             logger.error(`Error: ${err}`);
             throw new Error('Ocurrió un error obteniendo los Mensajes.', err);

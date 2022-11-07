@@ -9,3 +9,6 @@
 {"level":"error","message":"Error: TypeError: Cannot read properties of undefined (reading 'from')"}
 {"level":"error","message":"Error: TypeError: Cannot read properties of undefined (reading 'from')"}
 {"level":"error","message":"Error: TypeError: Cannot read properties of undefined (reading 'from')"}
+{"level":"error","message":"Error: ValidationError: thumbnail: Path `thumbnail` is required."}
+{"level":"error","message":"Error: ValidationError: thumbnail: Path `thumbnail` is required."}
+{"level":"error","message":"Error: ValidationError: thumbnail: Path `thumbnail` is required."}
